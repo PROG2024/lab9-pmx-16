@@ -9,6 +9,18 @@ class Circle:
         
         :param radius: radius of the circle, may be zero.
         :raises ValueError: if radius is negative.
+
+        >>> circle1 = Circle(3)
+        >>> circle2 = Circle(4)
+        >>> result_circle = circle1.add_area(circle2)
+        >>> result_circle.get_radius()
+        5.0
+
+        >>> circle_neg = Circle(-3)
+        Traceback (most recent call last):
+            ...
+        ValueError: radius must be non-negative
+
         """
         if radius < 0:
             raise ValueError("radius must be non-negative")
@@ -39,3 +51,8 @@ class Circle:
         return f"Circle({self.radius})"
     
     __repr__ = __str__
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    print("All tests have passed.")
